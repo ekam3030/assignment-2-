@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 2</title>
+
+    
+    <style>
+        h1 {
+            color: green;
+        }
+
+        p {
+            background-color: lightblue;
+            font-family: Algerian;
+            font-size: 45px;
+        }
+
+        #section1 {
+            background-image: url("myimage.jpg"); /
+            background-size: cover;
+            padding: 20px;
+        }
+
+        #section2 {
+            background-image: url("skytrain.jpg"); 
+            background-size: cover;
+            padding: 20px;
+        }
+    </style>
+
+    <script>
+        
+        function calculateAverage() {
+
+            
+            let num1 = parseInt(prompt("Enter first number (20 - 350):"));
+            let num2 = parseInt(prompt("Enter second number (20 - 350):"));
+
+            
+            if (num1 < 20 || num1 > 350 || num2 < 20 || num2 > 350) {
+                alert("Numbers must be between 20 and 350.");
+                return;
+            }
+
+            
+            let average = (num1 + num2) / 2;
+
+            
+            let randomNumber = Math.floor(Math.random() * (400 - 50 + 1)) + 50;
+
+            let message = "";
+
+            
+            if (average > randomNumber) {
+                message = "Your average (" + average + ") is GREATER than system number (" + randomNumber + ")";
+            } 
+            else if (average < randomNumber) {
+                message = "Your average (" + average + ") is LESS than system number (" + randomNumber + ")";
+            } 
+            else {
+                message = "Your average is EQUAL to system number (" + randomNumber + ")";
+            }
+
+            
+            document.getElementById("resultBox").value = message;
+        }
+
+        
+        function changeImage(imageName) {
+            document.getElementById("displayImage").src = imageName;
+        }
+    </script>
+</head>
+
+<body>
+
+
+<div id="section1">
+
+    <h1>Section 1</h1>
+
+    <p>This is my webpage for Assignment 2</p>
+
+    
+    <ul type="square">
+        <li>Planets
+            <ol type="i">
+                <li>Jupiter
+                    <ol type="a">
+                        <li>Largest Planet</li>
+                        <li>Gas Giant</li>
+                    </ol>
+                </li>
+                <li>Mars</li>
+            </ol>
+        </li>
+    </ul>
+
+    
+    <h3>Video about Jupiter</h3>
+    <iframe width="400" height="300"
+        src="https://youtu.be/JRHwq1DIgbI?si=Atjt3NwY2tjeooLn"
+        frameborder="0" allowfullscreen>
+    </iframe>
+
+    <br><br>
+
+    
+    <a href="#section2">Go to Section 2</a>
+
+</div>
+
+
+<hr style="width:60%; height:30px; background-color:lightgreen;">
+
+
+<div id="section2">
+
+    <h1>Section 2</h1>
+
+    
+    <input type="radio" name="image" onclick="changeImage('myphoto.jpg')"> My Photo
+    <input type="radio" name="image" onclick="changeImage('bird.jpg')"> Bird
+    <input type="radio" name="image" onclick="changeImage('fish.jpg')"> Fish
+
+    <br><br>
+
+    
+    <img id="displayImage" src="myphoto.jpg" width="300" height="250">
+
+</div>
+
+
+
+<h1>Section 3</h1>
+
+<button onclick="calculateAverage()">Click to Enter Numbers</button>
+
+<br><br>
+
+<input type="text" id="resultBox" size="70">
+
+</body>
+</html>
